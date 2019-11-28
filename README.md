@@ -210,3 +210,4 @@ A sample application is provided [here](https://github.com/vmware/singleton/tree
 
 > Note: If you want to run the sample application, you must start the Singleton service [here](https://github.com/vmware/singleton/blob/master/README.md). Please use HTTP in the test environment, the port number should be modified according to the actual situation.
 
+git
