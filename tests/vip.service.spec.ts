@@ -2,6 +2,7 @@
  * Copyright 2019 VMware, Inc.
  * SPDX-License-Identifier: EPL-2.0
  */
+
 import { VIPModule, VIPService } from '../index';
 import { Injector } from '@angular/core';
 // tslint:disable-next-line: import-blacklist
