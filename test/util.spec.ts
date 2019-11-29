@@ -29,6 +29,11 @@ describe('utils', () => {
         });
     });
     describe('getBrowserCultureLang', () => {
+        it('should return undefined value', () => {
+            if (typeof window === 'undefined' || typeof window.navigator === 'undefined') {
+                expect( getBrowserCultureLang() ).toEqual(undefined);
+            } 
+        });
         it('should return correct value', () => {
             let browserCultureLang: any = window.navigator.languages ? window.navigator.languages[0] : null;
             browserCultureLang = browserCultureLang ||
