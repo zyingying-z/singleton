@@ -37,11 +37,7 @@ describe('utils', () => {
         });
     });
     describe('assign', () => {
-        it('should true when obj is object', () => {
-            expect( isObject( ['1'] ) ).toBeTruthy();
-        });
-        it('should throw new TypeError', () => {
-            expect( isObject( 1 ) ).toThrowError('Target must be an object');
-        });
-    });
+        
+    })
 });
+
