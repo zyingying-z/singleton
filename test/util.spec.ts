@@ -2,7 +2,7 @@
  * Copyright 2019 VMware, Inc.
  * SPDX-License-Identifier: EPL-2.0
  */
-import { isDefined, resolveLanguageTag, getBrowserCultureLang, assign } from '../src/utils';
+import { isDefined, resolveLanguageTag, getBrowserCultureLang } from '../src/utils';
 
 describe('utils', () => {
 
@@ -29,9 +29,6 @@ describe('utils', () => {
         });
     });
     describe('getBrowserCultureLang', () => {
-        it('should return undefined value', () => {
-            expect( getBrowserCultureLang() ).toEqual(undefined);
-        });
         it('should return correct value', () => {
             let browserCultureLang: any = window.navigator.languages ? window.navigator.languages[0] : null;
             browserCultureLang = browserCultureLang ||
