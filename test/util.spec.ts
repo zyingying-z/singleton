@@ -2,7 +2,7 @@
  * Copyright 2019 VMware, Inc.
  * SPDX-License-Identifier: EPL-2.0
  */
-import { isDefined, resolveLanguageTag, getBrowserCultureLang } from '../src/utils';
+import { isDefined, resolveLanguageTag, getBrowserCultureLang, assign } from '../src/utils';
 
 describe('utils', () => {
 
@@ -36,12 +36,15 @@ describe('utils', () => {
             expect( getBrowserCultureLang() ).toEqual(browserCultureLang);
         });
     });
-    describe('assign', () => {
+    const isObject = function (obj: any) {
+        return obj && typeof obj === 'object';
+    };
+    describe('assignFunction', () => {
         it('should return true when value is object', () => {
             expect( isObject( ['1'] ) ).toBeTruthy();
         });
         it('should throw error if Target isn’t object', () => {
-            expect( isObject( '1' ) ).toThrowError('Target must be an objec');
+            expect( assign( {} ) ).toThrowError('Target must be an objec');
         });
     })
 });
