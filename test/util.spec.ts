@@ -2,7 +2,7 @@
  * Copyright 2019 VMware, Inc.
  * SPDX-License-Identifier: EPL-2.0
  */
-import { isDefined, resolveLanguageTag, getBrowserCultureLang } from '../src/utils';
+import { isDefined, resolveLanguageTag, getBrowserCultureLang, assign } from '../src/utils';
 
 describe('utils', () => {
 
@@ -30,15 +30,21 @@ describe('utils', () => {
     });
     describe('getBrowserCultureLang', () => {
         it('should return undefined value', () => {
-            if (typeof window === 'undefined' || typeof window.navigator === 'undefined') {
-                expect( getBrowserCultureLang() ).toEqual(undefined);
-            } 
+            expect( getBrowserCultureLang() ).toEqual(undefined);
         });
         it('should return correct value', () => {
             let browserCultureLang: any = window.navigator.languages ? window.navigator.languages[0] : null;
             browserCultureLang = browserCultureLang ||
                 window.navigator.language;
             expect( getBrowserCultureLang() ).toEqual(browserCultureLang);
+        });
+    });
+    describe('assign', () => {
+        it('should true when obj is object', () => {
+            expect( isObject( ['1'] ) ).toBeTruthy();
+        });
+        it('should throw new TypeError', () => {
+            expect( isObject( 1 ) ).toThrowError('Target must be an object');
         });
     });
 });
