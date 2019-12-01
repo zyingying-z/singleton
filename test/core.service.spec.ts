@@ -23,6 +23,7 @@ describe( 'i18nClient coreService', () => {
         it('should get correct configs', () => {
             expect( client.coreService.getProductID() ).toEqual('TEST');
             expect( client.coreService.getComponent() ).toEqual('demo');
+            expect( client.coreService.getHost() ).toEqual('localhost:4000');
         });
         it('should get correct default configs', () => {
             expect( client.coreService.getLanguage() ).toEqual('en');
@@ -75,6 +76,12 @@ describe( 'i18nClient coreService', () => {
         it('should throw error if reqiured param undifined', () => {
             const errorMsg = `Paramater: 'ProductID' required for 'CoreService'`;
             expect( () => { i18nClient.createInstance({} as any); } ).toThrowError(errorMsg);
+
+            const errorMsg_Version = `Paramater: 'Version' required for 'CoreService'`;
+            expect( () => { i18nClient.createInstance({ ...baseConfig, ...{ version: ''}})} ).toThrowError(errorMsg_Version);
+
+            const errorMsg_Host = `Paramater: 'Host' required for 'CoreService'`;
+            expect( () => { i18nClient.createInstance({ ...baseConfig, ...{ host: ''}})} ).toThrowError(errorMsg_Host);
         });
     });
 });
